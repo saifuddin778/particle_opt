@@ -36,8 +36,8 @@ function create_single_particle(id_, x, y, xsvg, scale_){
 		particle.style("stroke", "black")
 		particle.style("fill", "lightgreen");
 	}
-		
 }
+
 
 function visualize(t){
 	var created = {};
