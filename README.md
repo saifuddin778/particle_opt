@@ -1,7 +1,7 @@
 # particle_opt
 An implementation of Particle Swarm Optimization algorithm. 
 
-This implementation is very basic, but do provides an editable objective function (in the `objective_method.py`) file, that can be modified accordingly. Moreover, it provides a **visualizing feautre** for animating the performance and activity of particles as they trace and swarm their given target (using `visualize=True` parameter in the main method). 
+This implementation is very basic, but do provides an editable objective function (in the `objective_method.py`) file, that can be modified accordingly. It provides a [**Visualizing Feautre**] (http://saif778.pythonanywhere.com/pso/) for animating the performance and activity of particles as they trace and swarm their given target (using `visualize=True` parameter in the main method). 
 
 ```python
 from particle_opt.pso import pso
