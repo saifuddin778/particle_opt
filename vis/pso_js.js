@@ -21,7 +21,7 @@ function create_single_particle(id_, x, y, xsvg, scale_){
 						//.attr("x", scale_(x))
 						//.attr("y", y)
 						.attr("dy", -10)
-						.text(id_)
+						.text(id_)  vds
 						.style("font-size", "5px");
 
 	if (id_ == -1){
