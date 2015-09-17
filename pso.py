@@ -165,7 +165,7 @@ class pso():
 			set_trace(i, old_vals, new_vals)
 
 
-	def train(self):
+	def optimize(self):
 		"""
 		trains/fits the particles to catch the target 
 		under the given number of pre-fixed iterations
@@ -175,15 +175,7 @@ class pso():
 
 		while not self.done:
 			if self.epoch < self.max_epochs:
-				for i in range(self.max_particles):
-					# for j in range(self.max_inputs):
-					# 	if j < self.max_inputs - 1:
-					# 		print str(particles[i].get_val_by_j(j)) + " + "
-					# 	else:
-					# 		print str(particles[i].get_val_by_j(j)) + " = "
-
-					# print str(self.objective(particles[i].get_vals()))
-					
+				for i in range(self.max_particles):					
 					if self.objective(particles[i].get_vals()) == self.target:
 						victor = i
 						self.done = True
@@ -199,9 +191,7 @@ class pso():
 
 				self.set_velocity(self.g_best)
 				self.update_particles(self.g_best)
-
 				self.epoch += 1
-				print "epoch number .. %d" % self.epoch
 			else:
 				self.done = True
 		if found:
@@ -209,6 +199,8 @@ class pso():
 		else:
 			print "exact match not found. %d is the nearest: %s" % (victor, str(particles[victor].get_vals()))
 		
+		print "epochs: %d  out of %d completed" % (self.epoch, self.max_epochs)
+
 		#--add the achieved
 		movement_trace.append({
 			'id': -1,
@@ -240,7 +232,3 @@ class pso():
 			write_trace(movement_trace, results)
 			print "visual trace created..please check viz/pso_index.html"
 		return results
-
-#p = pso(particle_count=50, dimensions=3, v_max=100, max_epochs=100, min_init=10, max_init=500, target=200)
-#vic = p.train()
-
